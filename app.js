@@ -5,13 +5,8 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('hello.ejs');
-});
-
-//トップ画面を表示するルーティング
-app.get('/top', (req, res) => {
     res.render('top.ejs');
-})
+});
 
 //一覧画面を表示するルーティング
 app.get('/index', (req, res) => {
