@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+//cssや画像ファイルを置くフォルダを指定する
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     res.render('hello.ejs');
 });
