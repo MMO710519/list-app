@@ -5,6 +5,9 @@ const app = express();
 
 //cssや画像ファイルを置くフォルダを指定する
 app.use(express.static('public'));
+// フォームから送信された値を受け取る
+app.use(express.urlencoded({extended: false}));
+
 // DBへの接続情報
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -32,6 +35,16 @@ app.get('/index', (req, res) => {
 app.get('/new',(req,res) => {
     res.render('new.ejs');
 });
+
+app.post('/create',(req,res) => {
+    connection.query(
+        'INSERT INTO items (name) VALUES (?)',
+        [req.body.itemName],
+        (error, results) => {
+            res.render('index.ejs'); 
+        }
+    );
+})
 
 //サーバーを起動するコード
 app.listen(3000);
