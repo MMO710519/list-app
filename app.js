@@ -1,7 +1,6 @@
 const express = require('express');
 //MySQLを使うためのコード
 const mysql = require('mysql');
-
 const app = express();
 
 //cssや画像ファイルを置くフォルダを指定する
@@ -14,13 +13,21 @@ const connection = mysql.createConnection({
     database: 'list_app'
 });
 
+
 app.get('/', (req, res) => {
     res.render('top.ejs');
 });
 
 //一覧画面を表示するルーティング
 app.get('/index', (req, res) => {
-    res.render('index.ejs');
-})
+    //DBからデータを取得する
+    connection.query(
+        'SELECT id, name FROM items',
+        (error, results) => {
+            res.render('index.ejs',{items:results});
+        }
+    );
+});
+
 //サーバーを起動するコード
 app.listen(3000);
