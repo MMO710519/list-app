@@ -29,5 +29,9 @@ app.get('/index', (req, res) => {
     );
 });
 
+app.get('/new',(req,res) => {
+    res.render('new.ejs');
+});
+
 //サーバーを起動するコード
 app.listen(3000);
