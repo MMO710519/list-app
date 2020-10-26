@@ -27,7 +27,7 @@ app.get('/index', (req, res) => {
     connection.query(
         'SELECT id, name FROM items',
         (error, results) => {
-            res.render('index.ejs',{items:results});
+            res.render('index.ejs', {items:　results});
         }
     );
 });
@@ -41,10 +41,20 @@ app.post('/create',(req,res) => {
         'INSERT INTO items (name) VALUES (?)',
         [req.body.itemName],
         (error, results) => {
-            res.render('index.ejs'); 
+            res.redirect('/index'); 
         }
     );
-})
+});
+
+app.post('/delete/:id',(req,res)=>{
+    connection.query(
+        'DELETE FROM items WHERE id=?',
+        [req.params.id],
+        (error,results)=>{
+            res.redirect('/index');
+        }
+    )
+});
 
 //サーバーを起動するコード
 app.listen(3000);
