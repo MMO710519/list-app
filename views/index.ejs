@@ -8,17 +8,17 @@
 </head>
 <body>
    <header>
-       <a class="header-logo" href="/">LIST APP</a>
+       <a class="header-logo" href="/">ToDooo</a>
    </header>
    <div class="container">
        <div class="container-header">
-           <h1>買い物リスト</h1>
+           <h1>ToDoリスト</h1>
            <a href="/new" class="new-button">+ 新規作成</a>
        </div>
        <div class="index-table-wrapper">
            <div class="table-head">
                <span class="id-column">ID</span>
-               <span>買うもの</span>
+               <span>やること</span>
            </div>
            <ul class="table-body">
             <% items.forEach((item) => { %>
@@ -33,9 +33,9 @@
                     </div>
                     <div class="item-menu">
                         <form action="/delete/<%= item.id %>" method="post">
-                            <input type="submit" value="削除">
+                            <input type="submit" value="×">
                         </form>
-                        <a href="/edit/<%= item.id %>">編集</a>
+                        <!-- <a href="/edit/<%= item.id %>">編集</a> -->
                     </div>
                 </li>
             <% }); %>

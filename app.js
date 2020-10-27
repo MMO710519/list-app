@@ -73,7 +73,7 @@ app.post('/update/:id', (req,res)=>{
         (error,results)=>{
             res.redirect('/index');
         }
-    );
+    )
 });
 
 //サーバーを起動するコード
