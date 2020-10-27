@@ -90,15 +90,15 @@ input {
   text-align: center;
   line-height: 45px;
   font-weight: 600;
-  color: #42cea9;;
+  color: #aa85be;;
   background-color: #ffffff;
-  border: 2px solid #58d2b2;
+  border: 2px solid #c558e0;
   border-radius: 2px;
 }
 
 .top-detail .index-button:hover {
   color: #ffffff;
-  background-color:  #58d2b2;
+  background-color:  #e7609f;
 }
 
 
