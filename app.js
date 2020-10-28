@@ -2,6 +2,7 @@ const express = require('express');
 //MySQLを使うためのコード
 const mysql = require('mysql');
 const app = express();
+const moment = require('moment');
 
 //cssや画像ファイルを置くフォルダを指定する
 app.use(express.static('public'));
@@ -19,6 +20,21 @@ const connection = mysql.createConnection({
 
 app.get('/', (req, res) => {
     res.render('top.ejs');
+});
+
+app.get('/toRegister',(req,res) => {
+    res.render('register.ejs');
+});
+
+
+app.post('/register',(req,res) => {
+    connection.query(
+        'INSERT INTO users (name,email,password,created_at) VALUES (?,?,?,?)',
+        [req.body.name,req.body.email,req.body.password,moment().format('YYYY-MM-DD HH:mm:ss')],
+        (error, results) => {
+            res.redirect('/'); 
+        }
+    );
 });
 
 //一覧画面を表示するルーティング
