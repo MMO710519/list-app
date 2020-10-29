@@ -3,6 +3,9 @@ const express = require('express');
 const mysql = require('mysql');
 const app = express();
 const moment = require('moment');
+const date = require('date-utils');
+// const session = require('express-session');
+// const router = express.Router();
 
 //cssや画像ファイルを置くフォルダを指定する
 app.use(express.static('public'));
@@ -17,10 +20,39 @@ const connection = mysql.createConnection({
     database: 'list_app'
 });
 
+// router.get('/',function(req,res,next){
+//     if(req.session.id){
+//         res.redirect('/');
+//     }　else {
+//         res.render('login',{
+//             title: 'ログイン'
+//         });
+//     }
+// });
 
-app.get('/', (req, res) => {
-    res.render('top.ejs');
-});
+// router.post('/login', function(req, res, next) {
+//     const email = req.body.email;
+//     const password = req.body.password;
+//     const query = 'SELECT id FROM users WHERE email = "' + email + '" AND password = "' + password + '" LIMIT 1';
+//     connection.query(query, function(err, rows) {
+//       const id = rows.length? rows[0].id: false;
+//       if (id) {
+//         req.session.id = id;
+//         res.redirect('/index');
+//       } else {
+//         res.render('login', {
+//           title: 'ログイン',
+//           noUser: 'メールアドレスとパスワードが一致するユーザーはいません'
+//         });
+//       }
+//     });
+//     res.render('/index');
+// });
+
+
+// app.get('/', (req, res) => {
+//     res.render('top.ejs');
+// });
 
 app.get('/toRegister',(req,res) => {
     res.render('register.ejs');
@@ -38,10 +70,10 @@ app.post('/register',(req,res) => {
 });
 
 //一覧画面を表示するルーティング
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
     //DBからデータを取得する
     connection.query(
-        'SELECT id, name FROM items',
+        'SELECT id, name,expire_date FROM items',
         (error, results) => {
             res.render('index.ejs', {items:　results});
         }
@@ -54,10 +86,10 @@ app.get('/new',(req,res) => {
 
 app.post('/create',(req,res) => {
     connection.query(
-        'INSERT INTO items (name) VALUES (?)',
-        [req.body.itemName],
+        'INSERT INTO items (name,expire_date) VALUES (?,?)',
+        [req.body.itemName, moment().format('YYYY-MM-DD')],
         (error, results) => {
-            res.redirect('/index'); 
+            res.redirect('/'); 
         }
     );
 });
@@ -67,7 +99,7 @@ app.post('/delete/:id',(req,res)=>{
         'DELETE FROM items WHERE id=?',
         [req.params.id],
         (error,results)=>{
-            res.redirect('/index');
+            res.redirect('/');
         }
     )
 });
@@ -85,9 +117,9 @@ app.get('/edit/:id',(req,res)=>{
 app.post('/update/:id', (req,res)=>{
     connection.query(
         'UPDATE items SET name=? WHERE id=?',
-        [req.body.itemName,req.params.id],
+        [req.body.updateName, req.params.id],
         (error,results)=>{
-            res.redirect('/index');
+            res.redirect('/');
         }
     )
 });

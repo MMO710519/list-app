@@ -225,6 +225,13 @@ header {
   font-weight: 500;
   color: #8491a5;
 }
+.table-body .date-column {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  color: #19c0b2;
+}
+
 
 .item-data {
   display: flex;
