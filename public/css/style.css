@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #f6faff;
+  background-color: #ba8ccf1e;
   color: #6c7686;
 }
 
@@ -25,7 +25,7 @@ ul, li {
 a {
   display: block;
   text-decoration: none;
-  color: #2d3133;
+  color: #a04ad1;
   font-size: 14px;
 }
 
@@ -47,74 +47,6 @@ input {
   font-size: 100%;
 }
 
-/* top ================================ */
-.top-wrapper {
-  max-width: 1200px;
-  min-width: 920px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 60px;
-}
-
-.top-detail {
-  width: 36%;
-  min-width: 320px;
-  margin-top: -40px;
-}
-
-.top-detail .subtitle {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.top-detail .title {
-  font-size: 54px;
-  line-height: 66px;
-  letter-spacing: 2px;
-  margin-bottom: 24px;
-}
-
-.top-detail .description {
-  font-size: 14px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
-  margin-bottom: 40px;
-}
-
-.top-detail .index-button {
-  width: 184px;
-  height: 48px;
-  text-align: center;
-  line-height: 45px;
-  font-weight: 600;
-  color: #aa85be;;
-  background-color: #ffffff;
-  border: 2px solid #c558e0;
-  border-radius: 2px;
-}
-
-.top-detail .index-button:hover {
-  color: #ffffff;
-  background-color:  #e7609f;
-}
-
-
-.index-button {
-  cursor: pointer;
-}
-
-.top-image {
-  width: 64%;
-  text-align: center;
-  overflow: hidden;
-}
-
-.top-image img {
-  width: 88%;
-}
 
 /* header ================================ */
 header {
@@ -128,12 +60,12 @@ header {
   font-weight: 600;
   font-size: 20px;
   line-height: 56px;
-  color: #6c7686;
+  color: #e764d6;
   display: inline;
 }
 
 .header-logo:hover {
-  color: #58d2b2;
+  color: #aa3add;
 }
 
 /* container ================================ */
@@ -153,7 +85,7 @@ header {
 }
 
 .container-header .new-button {
-  background: #80bcff;
+  background: #1f95a5;
   border-radius: 30px;
   font-size: 14px;
   width: 120px;
@@ -161,11 +93,11 @@ header {
   line-height: 43px;
   text-align: center;
   color: #ffffff;
-  border: 2px solid #80bcff;
+  border: 2px solid #6629b4;
 }
 .container-header .new-button:hover {
   background-color: #ffffff;
-  color: #80bcff;
+  color: #e680ff;
   transition: all 0.3s ease;
 }
 
@@ -173,7 +105,7 @@ header {
   margin-top: 16px;
   margin-left: 2px;
   font-weight: 600;
-  color: #bac6d3;
+  color: #6aa5e4;
   text-decoration: underline;
   display: inline-block;
 }
@@ -189,7 +121,7 @@ header {
 /* index ================================ */
 .table-head {
   display: flex;
-  background-color: #b7cadc;
+  background-color: #c4b7dc;
   border-radius: 2px 2px 0 0;
   height: 44px;
   font-size: 16px;
@@ -225,12 +157,7 @@ header {
   font-weight: 500;
   color: #8491a5;
 }
-.table-body .date-column {
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  color: #19c0b2;
-}
+
 
 
 .item-data {
@@ -280,7 +207,8 @@ header {
   background-color: #ffffff;
   border: 1px solid #f0f4f9;
   border-radius: 0px 0px 2px 2px;
-  padding: 32px;
+  padding: 40px;
+  width: 80%;
 }
 
 .form-label {
@@ -294,9 +222,9 @@ header {
   margin-top: 8px;
   padding: 12px 16px;
   background-color: #fcfcfd;
-  border: 1px solid #bac6d3;
+  border: 1px solid #d0bad3;
   border-radius: 2px;
-  color: #2b546a;
+  color: #4babdf;
   font-size: 12px;
 }
 
@@ -308,15 +236,15 @@ header {
   margin-left: auto;
   border-radius: 30px;
   font-size: 14px;
-  background-color: #80bcff;
+  background-color: #c09fe6;
   color: #ffffff;
   cursor: pointer;
   outline: none;
-  border: 2px solid #80bcff;
+  border: 2px solid #6b9de7;
 }
 
 .item-form-wrapper input[type="submit"]:hover {
   background-color: #ffffff;
-  color: #80bcff;
+  color: #b780ff;
   transition: all 0.3s ease;
 }
